@@ -21,7 +21,7 @@
 
   <body>
     <img src="/img/logo.png" alt="logo" width="333" height="64">
-    
+
     <br>
 
   	<!-- Parte 1
@@ -59,6 +59,14 @@
   			init();
   		});
 
+      const protData = {
+        "org.w3.clearkey": {
+          "clearkeys": {
+            "aXkX5Qqdyk+lB0XUpyQb6w":"G+U1ED05qxovFoYAVkIUeA" // <kid>:<key>
+          }
+        }
+      };
+
   		function init(){
   			var video,
   			player,
@@ -67,6 +75,7 @@
 	  		video = document.querySelector("video");
 	  		player = dashjs.MediaPlayer().create();
 	  		player.initialize(video, mpd_url, true);
+        player.setProtectionData(protData);
 	  		player.on(dashjs.MediaPlayer.events["PLAYBACK_ENDED"], function() {
 	  			clearInterval(eventPoller);
   			});

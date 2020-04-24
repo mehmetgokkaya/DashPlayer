@@ -1,14 +1,14 @@
 <?xml version="1.0" ?>
-<MPD mediaPresentationDuration="PT5M3.083S" minBufferTime="PT2.00S" profiles="urn:mpeg:dash:profile:isoff-live:2011" type="static" xmlns="urn:mpeg:dash:schema:mpd:2011">
+<MPD xmlns="urn:mpeg:dash:schema:mpd:2011" profiles="urn:mpeg:dash:profile:isoff-live:2011" minBufferTime="PT2.00S" mediaPresentationDuration="PT5M3.083S" type="static">
   <!-- Created with Bento4 mp4-dash.py, VERSION=2.0.0-632 -->
   <Period>
     <!-- Video -->
-    <AdaptationSet maxHeight="1080" maxWidth="1920" mimeType="video/mp4" segmentAlignment="true" startWithSAP="1">
-      <SegmentTemplate duration="2000" initialization="$RepresentationID$/init.mp4" media="$RepresentationID$/seg-$Number$.m4s" startNumber="1" timescale="1000"/>
-      <Representation bandwidth="188288" codecs="avc1.4D401E" frameRate="24" height="90" id="video/avc1/1" scanType="progressive" width="160"/>
-      <Representation bandwidth="1197712" codecs="avc1.4D401E" frameRate="24" height="360" id="video/avc1/2" scanType="progressive" width="640"/>
-      <Representation bandwidth="3461316" codecs="avc1.4D401F" frameRate="24" height="720" id="video/avc1/3" scanType="progressive" width="1280"/>
-      <Representation bandwidth="4587924" codecs="avc1.4D4028" frameRate="24" height="1080" id="video/avc1/4" scanType="progressive" width="1920"/>
+    <AdaptationSet mimeType="video/mp4" segmentAlignment="true" startWithSAP="1" maxWidth="1920" maxHeight="1080">
+      <SegmentTemplate timescale="1000" duration="2000" initialization="$RepresentationID$/init.mp4" media="$RepresentationID$/seg-$Number$.m4s" startNumber="1"/>
+      <Representation id="video/avc1/1" codecs="avc1.4D401E" width="160" height="90" scanType="progressive" frameRate="24" bandwidth="191898"/>
+      <Representation id="video/avc1/2" codecs="avc1.4D401E" width="640" height="360" scanType="progressive" frameRate="24" bandwidth="1202724"/>
+      <Representation id="video/avc1/3" codecs="avc1.4D401F" width="1280" height="720" scanType="progressive" frameRate="24" bandwidth="3465005"/>
+      <Representation id="video/avc1/4" codecs="avc1.4D4028" width="1920" height="1080" scanType="progressive" frameRate="24" bandwidth="4592767"/>
     </AdaptationSet>
   </Period>
 </MPD>
