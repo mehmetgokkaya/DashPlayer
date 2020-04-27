@@ -29,7 +29,14 @@
   		<source src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" type="application/dash+xml"/>
   	</video>
     -->
-
+    <div class='code'>
+      <p>Choose a source:</p>
+      <form >
+          <input type="radio" name="source" value="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd">Envivio stream<br>
+          <input type="radio" name="source" value="./output/stream.mpd">Joker<br>
+          <input type="button" onclick="changeSource()" value="Load">
+      </form>
+    </div>
   	<div class="code">
   		<video class="dashjs-player" autoplay controls preload="auto" muted width="640" height="360">
   		</video>
@@ -55,6 +62,12 @@
       -->
 
   	<script>
+
+      var mpd_url;
+
+
+      
+
   		document.addEventListener("DOMContentLoaded", function () {
   			init();
   		});
@@ -67,10 +80,26 @@
         }
       };
 
+      
+
   		function init(){
   			var video,
   			player,
-  			mpd_url = "./output/stream.mpd";
+        mpd_url = "./output/stream.mpd";
+        //mpd_url = "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd"
+
+        function changeSource() {
+          var source = document.forms[0];
+          var i;
+          for (i = 0; i < source.length; i++) {
+            if (source[i].checked) {
+              mpd_url = source[i].value;
+              player.attachSource(mpd_url);
+            }
+          }
+        }
+        window.changeSource = changeSource;
+
 
 	  		video = document.querySelector("video");
 	  		player = dashjs.MediaPlayer().create();
