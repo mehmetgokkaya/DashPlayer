@@ -37,7 +37,6 @@ options: {
 function addData(chart,label, data) {
     chart.data.labels.push(label);
     chart.data.datasets.forEach((dataset) => {
-        console.log(dataset.data)
         dataset.data.push(data);
     });
     chart.update();
@@ -90,10 +89,11 @@ function init(){
         document.getElementById('buffer').innerText = bufferLevel;
         document.getElementById('bitrate').innerText = bitrate;
         document.getElementById('representation').innerText = repSwitch.to;
+        
+
+        // Visualization
         bufferLevelHistory.push(bufferLevel)
         counter += 0.5
-        // console.log(bufferLevel)
-        // console.log(bufferLevelHistory)
         addData(myLineChart, counter, bufferLevel)
         }
     }, 500);
